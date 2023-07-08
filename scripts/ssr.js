@@ -115,7 +115,7 @@ const chooseRandom = () => {
 // Main Game
 
 //single Game Function with compare as inner function
-const singleGame = (valA, valB = pool[chooseRandom()]) => {
+const singleGame = (valA, valB) => {
   console.log(`${valA} : ${valB}`);
   return compare(valA, valB);
 };
@@ -165,4 +165,4 @@ const bigGame = (num) => {
 };
 // bigGame(8); // big game test
 
-export { pool, createPlayer, singleGame };
+export { pool, createPlayer, singleGame, chooseRandom };
