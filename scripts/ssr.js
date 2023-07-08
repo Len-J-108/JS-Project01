@@ -44,7 +44,10 @@ class Player {
 }
 //------------------------------------------------------------------------------------
 // create instance fo Player
-const playerOne = new Player('Charly', 0, 0);
+// const playerOne = new Player('Charly', 0, 0); // old
+const createPlayer = (val, score = 0, amountOfPlayedGames = 0) => {
+  return new Player(val, score, amountOfPlayedGames);
+};
 //------------------------------------------------------------------------------------
 // class tesing
 // console.log(playerOne.showPlayerdetails());
@@ -116,7 +119,7 @@ const singleGame = (valA, valB = pool[chooseRandom()]) => {
   console.log(`${valA} : ${valB}`);
   return compare(valA, valB);
 };
-singleGame(pool[1], pool[0]); // singlGame test
+//singleGame(pool[1], pool[0]); // singlGame test
 // console.log(singleGame(pool[1], pool[0]));
 
 //function
@@ -148,7 +151,7 @@ const mainGame = (val) => {
   }
 };
 
-// mainGame(pool[0]); // main game test
+//  mainGame(pool[0]); // main game test
 
 const bigGame = (num) => {
   for (let i = 0; i < num; i++) {
@@ -161,3 +164,5 @@ const bigGame = (num) => {
   return;
 };
 // bigGame(8); // big game test
+
+export { pool, createPlayer, singleGame };
