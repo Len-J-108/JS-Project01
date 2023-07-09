@@ -3,32 +3,35 @@
 //import anything from ssr.js
 import * as ssr from './ssr.js';
 
-//select container
-const container = document.getElementById('container');
-
 //------------------------------------------------------------------------------------
 
 // INFO: SELECTING
+const body = document.querySelector('body');
+const container = body.querySelector('#container');
+const wrapperMessages = container.children[0];
+const wrapperInput = container.children[1];
+const wrapperGame = container.children[2];
+const modal = container.children[3];
 
-const wrapperInput = document.getElementById('wrapper-input');
-const wrapperGame = document.getElementById('wrapper-game');
-const modal = document.getElementById('modal');
 const tryAgainBtn = modal.querySelector('#try-again');
-const wrapperMessages = document.getElementById('wrapper-messages');
-const showScoreMsg = wrapperMessages.querySelector('#show-score');
-const winLoseMsg = wrapperMessages.querySelector('#win-lose-msg');
-const threeButtonsDiv = wrapperGame.querySelector('.three-buttons-div');
-
+const showScoreMsg = wrapperMessages.firstElementChild;
+const winLoseMsg = showScoreMsg.nextElementSibling;
+const threeButtonsDiv = wrapperGame.firstElementChild;
+const namePlayerTag = document.getElementById('name1');
+//------------------------------------------------------------------------------------
+// create emplty player variables.
 let playerName = '';
 let playerInstance = {};
 
+let count = { countA: 0, countB: 0 };
+let { countA, countB } = count;
 //------------------------------------------------------------------------------------
-const form = wrapperInput.querySelector('form');
+const form = wrapperInput.firstElementChild;
 form.addEventListener('submit', (ee) => {
   ee.preventDefault(); //prevents automatic reload. of site.
   playerName = ee.target.querySelector('input').value;
   buildGame(playerName);
-  // form.classList.toggle('hide');
+  body.classList.add('change-background');
   wrapperInput.classList.add('hide');
 });
 
@@ -38,10 +41,9 @@ threeButtonsDiv.classList.add('three-btn-div');
 wrapperGame.append(showScoreMsg);
 
 //------------------------------------------------------------------------------------
-const buildGame = () => {
-  // h2.textContent = `${playerName}... good luck`;
+const buildGame = (val) => {
   // creating a player Class
-  playerInstance = ssr.createPlayer(playerName);
+  playerInstance = ssr.createPlayer(val);
   // creating buttons for game choices
   for (let i = 0; i < ssr.pool.length; i++) {
     const image = document.createElement('img');
@@ -49,11 +51,13 @@ const buildGame = () => {
     image.alt = ssr.pool[i];
     image.classList.add('image');
     threeButtonsDiv.append(image);
+    showScoreMsg.textContent = `${countA} : ${countB}`;
+    showScoreMsg.classList.add('opacity-full');
+    // namePlayerTag.textContent = ee.target.previousElementSibling;
+    // namePlayerTag.textContent = ee.target.querySelector('input').value;
   }
 };
 
-let count = { countA: 0, countB: 0 };
-let { countA, countB } = count;
 //------------------------------------------------------------------------------------
 const gameFunction = (ee) => {
   // ee.preventDefault(); // do i need this?????

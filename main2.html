@@ -9,7 +9,11 @@
   <body>
     <div id="container">
       <div id="wrapper-messages">
-        <h3 id="show-score"></h3>
+        <p class="names-paragraph">
+          <span id="name1" class="names-span"></span
+          ><span class="names-span">computer</span>
+        </p>
+        <h3 class="show-score"></h3>
         <h3 id="win-lose-msg"></h3>
       </div>
       <div id="wrapper-input">
@@ -22,13 +26,10 @@
       <div id="wrapper-game">
         <div class="three-buttons-div"></div>
       </div>
-      <div id="wrapper-messages">
+      <div id="modal">
         <h2 id="result-message"></h2>
+        <button id="try-again" class="btn hide">Try Again</button>
       </div>
-    </div>
-    <div id="modal">
-        <h2 id="result-message" ></h2>
-      <button id="try-again" class="btn hide">Try Again</button>
     </div>
     <script type="module" src="./scripts/main.js"></script>
   </body>

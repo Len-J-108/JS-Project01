@@ -25,6 +25,7 @@ body {
 
 #wrapper-input,
 #wrapper-game {
+  background: rgb(231, 167, 167);
   border: 2px solid;
   border-radius: 5px;
   width: 40%;
@@ -64,8 +65,19 @@ form {
   outline: 3px solid black;
 }
 
-#show-score {
+.show-score {
   border: 2px solid red;
+  opacity: 0;
   font-size: 5rem;
   text-align: center;
+}
+
+.opacity-full {
+  opacity: 1;
+  transition: opacity 5s;
+}
+
+.change-background {
+  background-color: rgb(44, 44, 167);
+  transition: background-color 3s;
 }
