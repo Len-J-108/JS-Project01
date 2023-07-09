@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="wrapper-messages">
+        <h3 id="show-score"></h3>
+        <h3 id="win-lose-msg"></h3>
+      </div>
+      <div id="wrapper-input">
+        <form action="post">
+          <label class="label" for="name-input">Enter your name:</label>
+          <input type="text" id="name-input" class="input" />
+          <input class="btn" type="submit" value="Play" />
+        </form>
+      </div>
+      <div id="wrapper-game">
+        <div class="three-buttons-div"></div>
+      </div>
+      <div id="wrapper-messages">
+        <h2 id="result-message"></h2>
+      </div>
+    </div>
+    <div id="modal">
+        <h2 id="result-message" ></h2>
+      <button id="try-again" class="btn hide">Try Again</button>
+    </div>
+    <script type="module" src="./scripts/main.js"></script>
+  </body>
+</html>
